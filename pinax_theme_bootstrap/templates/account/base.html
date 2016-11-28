@@ -5,7 +5,8 @@
 {% block body_class %}account{% endblock %}
 
 {% block subnav %}
-<div class="panel panel-default">
+{% if request.user.is_authenticated %}
+  <div class="panel panel-default">
     <div class="panel-heading"><strong>{% trans "Settings" %}</strong></div>
     <div class="list-group">
         <a class="list-group-item account-settings" href="{% url "account_settings" %}">
@@ -18,5 +19,6 @@
             {% trans "Delete account" %}
         </a>
     </div>
-</div>
+  </div>
+{% endif %}
 {% endblock %}
